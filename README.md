@@ -31,6 +31,7 @@ We used Pytorch to build our model. We follow the structure of the ResNet but in
 |--------|--------|
 | CNN(ResNet) | 0.9 |
 | CNN(AlexNet) | 0.8 |
-| GRU|...|
-|RNN|...|
+| GRU||
+|LSTM|...|
+|Attention｜...|
 
