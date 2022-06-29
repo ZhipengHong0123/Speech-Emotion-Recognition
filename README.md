@@ -25,8 +25,45 @@ def adjust_length(time_series_list, length):
         else:
             time_series_list[i] = np.array(time_series_list[i][:length])
 ```
+
+# Data Preprocessing and Feature Extraction (Audio -Domain Knowledge)
+
+```python
+def feature_extraction_1D(data):
+
+    # Zero Crossing rate
+    features = librosa.feature.zero_crossing_rate(y=data)
+
+    # Energy
+    features = np.append(features, librosa.feature.rms(y=data), axis=1)
+
+    # Mel-frequency cepstral coefficient
+    l = np.mean(librosa.feature.mfcc(y=data, sr=sampling_rate, n_mfcc=13), axis=0).reshape(1, 106)
+    features = np.append(features, l, axis=1)
+    
+    # Spectral Centroid
+    features = np.append(features, librosa.feature.spectral_centroid(y=data, sr=sampling_rate), axis=1)
+    
+    # Spectral Bandwidth
+    features = np.append(features, librosa.feature.spectral_bandwidth(y=data, sr=sampling_rate), axis=1)
+    
+    # Spectral Flatness
+    features = np.append(features, librosa.feature.spectral_flatness(y=data), axis=1)
+    
+    # Spectral Rolloff maximum frequencies
+    features = np.append(features, librosa.feature.spectral_rolloff(y=data, sr=sampling_rate), axis=1)
+    
+    # Spectral Rolloff minimum frequencies
+    features = np.append(features, librosa.feature.spectral_rolloff(y=data, sr=sampling_rate, roll_percent=0.01), axis=1)
+    
+    return np.array(features)
+```
+
+
 # Model and Result
-We used Pytorch to build our model. We follow the structure of the ResNet but instead of using `nn.Conv2D` we change to `nn.Conv1D`  
+We used Pytorch to build our model. We follow the structure of the ResNet but instead of using `nn.Conv2D` we change to `nn.Conv1D`
+For the Sequence Model, we also try deploying Bidirectional GRU, Bidirectional LSTM and Attention model. The training speed is not as fast as CNN model, so we only train 25 epochs. 
+
 | Model | Accuracy |
 |--------|--------|
 | CNN(ResNet) | 0.92 |
