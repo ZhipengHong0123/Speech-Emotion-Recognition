@@ -12,6 +12,8 @@ There are 6 different categroy:
 
 # Data Cleaning
 Since each file have different length, we need to adjust their length, we also need to chech the null value
+<img src="audio.png" width="400">
+
 ```python
 # check the length of audio and chop them into same length
 def adjust_length(time_series_list, length):
@@ -23,8 +25,12 @@ def adjust_length(time_series_list, length):
         else:
             time_series_list[i] = np.array(time_series_list[i][:length])
 ```
-# Model
-We used Pytorch to build our model. We follow the structure of the ResNet but instead of using `nn.Conv2D` we change to `nn.Conv1D` ....
+# Model and Result
+We used Pytorch to build our model. We follow the structure of the ResNet but instead of using `nn.Conv2D` we change to `nn.Conv1D`  
+| Model | Accuracy |
+|--------|--------|
+| CNN(ResNet) | 0.9 |
+| CNN(AlexNet) | 0.8 |
+| GRU|...|
+|RNN|...|
 
-# Result
-....
