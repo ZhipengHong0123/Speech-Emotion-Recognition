@@ -1,7 +1,7 @@
 # Speech-Emotion-Recognition
 Speech is the most natural way of expressing ourselves as humans. It is only natural then to extend this communication medium to computer applications. We define speech emotion recognition (SER) systems as a collection of methodologies that process and classify speech signals to detect the embedded emotions. SER is not a new field, it has been around for over two decades, and has regained attention thanks to the recent advancements. These novel studies make use of the advances in all fields of computing and technology, making it necessary to have an update on the current methodologies and techniques that make SER possible. We have identified and discussed distinct areas of SER, provided a detailed survey of current literature of each, and also listed the current challenges.
 # Dataset
-Our [dataset](https://www.kaggle.com/datasets/dmitrybabko/speech-emotion-recognition-en?select=Ravdess) is more than 10K audio files and each of them is 2-4 seconds. The whole dataset is more than 3GB.  
+Our [dataset](https://www.kaggle.com/datasets/dmitrybabko/speech-emotion-recognition-en?select=Ravdess) is more than 7K audio files and each of them is 2-4 seconds. The whole dataset is more than 3GB.  
 There are 6 different categroy: 
 - SAD - Sadness
 - ANG - Angry
@@ -61,8 +61,8 @@ def feature_extraction_1D(data):
 
 
 # Model and Result
-We used Pytorch to build our model. We follow the structure of the ResNet but instead of using `nn.Conv2D` we change to `nn.Conv1D`
-For the Sequence Model, we also try deploying Bidirectional GRU, Bidirectional LSTM and Attention model. The training speed is not as fast as CNN model, so we only train 25 epochs. 
+We used Pytorch to build our model. We follow the structure of the ResNet but instead of using `nn.Conv2D` we change to `nn.Conv1D`.
+For the Sequence Model, we also tried deploying Bidirectional GRU, Bidirectional LSTM and Attention model. The training speed was not as fast as CNN model, so we only trained 25 epochs. 
 
 | Model | Accuracy |
 |--------|--------|
