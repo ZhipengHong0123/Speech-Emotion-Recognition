@@ -29,9 +29,11 @@ def adjust_length(time_series_list, length):
 We used Pytorch to build our model. We follow the structure of the ResNet but instead of using `nn.Conv2D` we change to `nn.Conv1D`  
 | Model | Accuracy |
 |--------|--------|
-| CNN(ResNet) | 0.9 |
-| CNN(AlexNet) | 0.8 |
-| GRU||
-|LSTM|...|
-|Attention｜...|
+| CNN(ResNet) | 0.92 |
+| CNN(AlexNet) | 0.88 |
+|Attention｜0.63|
+|LSTM|0.53|
+| GRU|0.41|
+
+
 
