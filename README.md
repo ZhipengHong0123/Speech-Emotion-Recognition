@@ -65,6 +65,8 @@ def feature_extraction_1D(data):
 We used Pytorch to build our model. Following the structure of the ResNet but instead of using `nn.Conv2D`, we turned to `nn.Conv1D`.
 For the Sequence Model, we also tried deploying Bidirectional GRU, Bidirectional LSTM and Attention model. The training speed was not as fast as CNN model, so we only trained 25 epochs. 
 
+Considering the efficiency, we would choose 1DCNN as our winner for this project. Sequence models may perform better than CNN, but need to take much more training time, which is the trade off here. 
+
 | Model | Accuracy |
 |--------|--------|
 | CNN(ResNet) | 0.92 |
